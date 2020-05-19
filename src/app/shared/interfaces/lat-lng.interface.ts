@@ -1,4 +1,4 @@
-export class LatLng{
+export interface LatLng{
     lat: number;
     lng: number;
 }

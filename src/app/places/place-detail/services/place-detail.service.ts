@@ -12,7 +12,7 @@ export class PlaceDetailService {
 
   getPlaceDetail(place_id: string): Observable<Place>{
 
-    return  new BehaviorSubject<Place>({title:"Test", place_id: place_id}).asObservable();
+    return  new BehaviorSubject<Place>({name:"Test", place_id: place_id, address: '', location: {lat:1,lng:1}}).asObservable();
   }
 
 }
