@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PlaceDetailModule } from './place-detail/place-detail.module';
 import { PlaceSummaryComponent } from './place-summary/place-summary.component';
+import { PlaceDetailComponent } from './place-detail/components/place-detail.component';
 
 @NgModule({
-  declarations: [PlaceSummaryComponent],
+  declarations: [PlaceSummaryComponent,PlaceDetailComponent],
   imports: [
-    CommonModule,
-    PlaceDetailModule
+    CommonModule
   ], 
   exports: [
-    PlaceSummaryComponent
+    PlaceSummaryComponent,
+    PlaceDetailComponent
   ]
 })
 export class PlacesSharedModule { }

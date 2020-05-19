@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Place } from '../place.interface';
+import { Place } from '../../shared/interfaces/place.interface';
 
 @Component({
   selector: 'app-place-summary',

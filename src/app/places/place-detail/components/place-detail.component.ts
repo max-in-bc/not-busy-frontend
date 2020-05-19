@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PlaceDetailService } from '../services/place-detail.service';
-import { Place } from '../../place.interface';
+import { Place } from '../../../shared/interfaces/place.interface';
 import { Observable } from 'rxjs';
 
 @Component({

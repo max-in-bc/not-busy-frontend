@@ -1,0 +1,4 @@
+<div *ngFor="let place of places">
+    <app-place-detail [place_id]="place.place_id"></app-place-detail>
+    <app-place-summary [place]="place"></app-place-summary>
+</div>

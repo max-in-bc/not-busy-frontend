@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Place } from '../../place.interface';
+import { Place } from '../../../shared/interfaces/place.interface';
 import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class PlaceDetailService {
 
   getPlaceDetail(place_id: string): Observable<Place>{
 
-    return  new BehaviorSubject<Place>({title:"Test"}).asObservable();
+    return  new BehaviorSubject<Place>({title:"Test", place_id: place_id}).asObservable();
   }
 
 }
