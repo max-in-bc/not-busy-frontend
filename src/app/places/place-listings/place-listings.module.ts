@@ -5,6 +5,11 @@ import { PlacesSharedModule } from '../places-shared.module';
 import { PlaceListingsResolver } from './resolvers/place-listings.resolver';
 import { PlaceListingsService } from './services/place-listings.service';
 import { RouterModule } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 export const routes = [
   {
@@ -21,7 +26,12 @@ export const routes = [
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
-    PlacesSharedModule
+    FormsModule,
+    PlacesSharedModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule
   ], 
   providers: [
     PlaceListingsResolver,

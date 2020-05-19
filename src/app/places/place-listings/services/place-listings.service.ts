@@ -14,7 +14,7 @@ export class PlaceListingsService {
   searchPlacesByLocation(location: LatLng, search_term?: string):Promise<Array<Place>>{
 
     return new Promise<Array<Place>>((resolve,reject) => {
-        this.http.get(this.api.getBaseHref() + '/places', {params: {lat: location.lat.toString(), lng: location.lng.toString(), search_term: search_term ? search_term : ''}})
+        this.http.get(this.api.getBaseHref() + '/places', {params: {lat: location.lat.toString(), lng: location.lng.toString(), searchTerm: search_term ? search_term : ''}})
         .subscribe(
           data => {
             resolve(<Array<Place>>data['places']);

@@ -1,3 +1,17 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <span>Not Busy App</span>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row>
+        <mat-form-field>
+            <input  matInput placeholder="Search place types..."  [(ngModel)]="search_term">
+            <mat-icon (click)="searchPlaces()" style="align-self: flex-end;" matSuffix>search</mat-icon>
+        </mat-form-field>
+
+    </mat-toolbar-row>
+</mat-toolbar>
+
 <div *ngFor="let place of places">
     <!-- <app-place-detail [place_id]="place.place_id"></app-place-detail> -->
     <app-place-summary [place]="place"></app-place-summary>
