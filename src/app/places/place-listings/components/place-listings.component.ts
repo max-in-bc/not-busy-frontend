@@ -11,17 +11,30 @@ import { LocationService } from 'src/app/shared/services/location.service';
 })
 export class PlaceListingsComponent implements OnInit {
 
-  search_term: string = '';
+  is_loading: boolean = false;
+  keywords: string = '';
   places: Array<Place> = [];
-  constructor(private route : ActivatedRoute, private placeListingsServ: PlaceListingsService, private locationServ: LocationService) { 
+  constructor(public route : ActivatedRoute, private placeListingsServ: PlaceListingsService, private locationServ: LocationService) { 
     this.places = this.route.snapshot.data['data'].places
+    this.keywords = this.route.snapshot.data['data'].keywords
+    
   }
 
   ngOnInit(): void {
   }
 
   async searchPlaces(){
-    this.places = await this.placeListingsServ.searchPlacesByLocation(this.locationServ.getClientLocation(), this.search_term)
+    this.is_loading = true;
+    this.places = [];
+    this.places = await this.placeListingsServ.searchPlacesByLocation(this.locationServ.getClientLocation(), this.keywords)
+    if (this.keywords.length > 0) this.updateRouteParamWithSearchTerm();
+    this.is_loading = false;
+  }
+
+  private updateRouteParamWithSearchTerm(){
+    const params = new URLSearchParams(window.location.search);
+    params.set("keywords", this.keywords);
+    window.history.replaceState({}, "", decodeURIComponent(`${window.location.pathname}?${params}`));
   }
 
 }

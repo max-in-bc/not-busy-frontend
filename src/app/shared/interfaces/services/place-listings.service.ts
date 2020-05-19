@@ -10,7 +10,7 @@ export class PlaceListingsService {
 
   constructor(private http: HttpClient) { }
 
-  searchPlacesByLocation(location: LatLng, search_term?: string):Promise<Array<Place>>{
+  searchPlacesByLocation(location: LatLng, keywords?: string):Promise<Array<Place>>{
 
     return new Promise<Array<Place>>(resolve => {
       return new Promise((resolve, reject) => {

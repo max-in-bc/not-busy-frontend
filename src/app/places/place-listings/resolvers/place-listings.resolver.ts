@@ -1,27 +1,35 @@
 import { Injectable } from '@angular/core';
-import { Resolve } from '@angular/router';
+import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 
 import { forkJoin } from 'rxjs';
 import { PlaceListingsService } from '../services/place-listings.service';
 import { LocationService } from 'src/app/shared/services/location.service';
 
+import { last, pluck} from 'rxjs/operators';
 
 @Injectable()
 export class PlaceListingsResolver implements Resolve<any> {
 
   constructor(
     private placeListingsServ: PlaceListingsService,
-    private locationServ: LocationService,
+    private locationServ: LocationService
   ) {}
 
-  resolve() {
+  resolve(route: ActivatedRouteSnapshot) {
     return new Promise(async (resolve, reject) => {
       await this.locationServ.waitForLocation(); //we want lat lng before proceeding
+
+    
       forkJoin(
-        this.placeListingsServ.searchPlacesByLocation(this.locationServ.getClientLocation()),
+        this.placeListingsServ.searchPlacesByLocation(this.locationServ.getClientLocation(), route.queryParams.keywords),
       ).subscribe((data: any) => {
         resolve({
           places: data[0],
+          keywords: route.queryParams.keywords
+        });
+      }, (err) => {
+        resolve({
+          places: [],
         });
       });
     });

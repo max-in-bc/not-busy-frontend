@@ -11,10 +11,10 @@ export class PlaceListingsService {
 
   constructor(private http: HttpClient, private api: BaseAPIService) { }
 
-  searchPlacesByLocation(location: LatLng, search_term?: string):Promise<Array<Place>>{
+  searchPlacesByLocation(location: LatLng, keywords?: string):Promise<Array<Place>>{
 
     return new Promise<Array<Place>>((resolve,reject) => {
-        this.http.get(this.api.getBaseHref() + '/places', {params: {lat: location.lat.toString(), lng: location.lng.toString(), searchTerm: search_term ? search_term : ''}})
+        this.http.get(this.api.getBaseHref() + '/places', {params: {lat: location.lat.toString(), lng: location.lng.toString(), searchTerm: keywords ? keywords : ''}})
         .subscribe(
           data => {
             resolve(<Array<Place>>data['places']);

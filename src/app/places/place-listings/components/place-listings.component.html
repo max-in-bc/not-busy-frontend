@@ -5,7 +5,7 @@
 
     <mat-toolbar-row>
         <mat-form-field>
-            <input  matInput placeholder="Search place types..."  [(ngModel)]="search_term">
+            <input (keyup.enter)="searchPlaces()" matInput placeholder="Search place types..."  [(ngModel)]="keywords">
             <mat-icon (click)="searchPlaces()" style="align-self: flex-end;" matSuffix>search</mat-icon>
         </mat-form-field>
 
@@ -16,3 +16,14 @@
     <!-- <app-place-detail [place_id]="place.place_id"></app-place-detail> -->
     <app-place-summary [place]="place"></app-place-summary>
 </div>
+<div  *ngIf="is_loading" class="place-listing-spinner">
+    <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+</div>
+
+<mat-card *ngIf="!is_loading && places && places.length == 0">
+    <mat-card-header>
+        <mat-card-subtitle>
+            no places found in your area using the keywords: '{{this.route.snapshot.data['data'].keywords}}'
+        </mat-card-subtitle>
+    </mat-card-header>
+</mat-card >

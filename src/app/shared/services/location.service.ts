@@ -56,10 +56,18 @@ export class LocationService {
 
     return new Promise<LatLng>(resolve => {
 
-      
+      let counter = 0;
       let timer = setInterval(() => {
-        if (this._initialized) {
+        counter += 500;
+        if (this._initialized || counter >= 10000) {
+          console.log('took over 10 seconds to get user location... using test location')
           clearInterval(timer);
+          if (counter >= 5000){
+            this._location = { //nyc for testing temporarily 
+              lat:40.785091,
+              lng:-73.968285
+            };
+          }
           resolve(this.getClientLocation());
         }
       }, 500);
