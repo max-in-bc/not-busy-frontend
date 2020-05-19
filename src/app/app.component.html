@@ -1,4 +1,12 @@
 
 
 
-<router-outlet></router-outlet>
+<router-outlet>
+    <div class="loading-screen-window" *ngIf="!(is_initialized$ | async)">
+        <div class="loading-screen-spinner">
+            <div class="lds-ripple"><div></div><div></div></div>
+        </div>
+        <span class="loading-screen-message" >Loading your location...</span>
+    </div>
+    
+</router-outlet>

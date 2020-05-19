@@ -62,7 +62,7 @@ export class LocationService {
           clearInterval(timer);
           resolve(this.getClientLocation());
         }
-      }, 150);
+      }, 500);
     });
 
   }
