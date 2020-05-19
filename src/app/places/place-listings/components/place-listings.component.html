@@ -1,4 +1,6 @@
+
 <mat-toolbar>
+   
     <mat-toolbar-row>
         <span>Not Busy App</span>
     </mat-toolbar-row>
@@ -6,18 +8,16 @@
     <mat-toolbar-row>
         <mat-form-field>
             <input (keyup.enter)="searchPlaces()" matInput placeholder="Search place types..."  [(ngModel)]="keywords">
-            <mat-icon (click)="searchPlaces()" style="align-self: flex-end;" matSuffix>search</mat-icon>
+            <mat-icon [routerLink]="['/home/' + keywords]" style="align-self: flex-end;" matSuffix>search</mat-icon>
         </mat-form-field>
 
     </mat-toolbar-row>
 </mat-toolbar>
 
+<ngx-loading-bar  [fixed]="false" diameter="28px" color="#525252"></ngx-loading-bar>
 <div *ngFor="let place of places">
     <!-- <app-place-detail [place_id]="place.place_id"></app-place-detail> -->
     <app-place-summary [place]="place"></app-place-summary>
-</div>
-<div  *ngIf="is_loading" class="place-listing-spinner">
-    <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 </div>
 
 <mat-card *ngIf="!is_loading && places && places.length == 0">

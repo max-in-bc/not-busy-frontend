@@ -12,6 +12,9 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+
 export const routes = [
   {
     path: '',
@@ -33,7 +36,9 @@ export const routes = [
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    LoadingBarRouterModule,
+    LoadingBarModule
   ], 
   providers: [
     PlaceListingsResolver,

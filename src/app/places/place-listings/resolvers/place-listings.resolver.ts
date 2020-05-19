@@ -21,11 +21,11 @@ export class PlaceListingsResolver implements Resolve<any> {
 
     
       forkJoin(
-        this.placeListingsServ.searchPlacesByLocation(this.locationServ.getClientLocation(), route.queryParams.keywords),
+        this.placeListingsServ.searchPlacesByLocation(this.locationServ.getClientLocation(), route.params.keywords),
       ).subscribe((data: any) => {
         resolve({
           places: data[0],
-          keywords: route.queryParams.keywords
+          keywords: route.params.keywords 
         });
       }, (err) => {
         resolve({
