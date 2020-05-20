@@ -4,5 +4,6 @@ export interface Place {
     name: string,
     address: string,
     location: LatLng,
-    place_id: string
+    place_id: string,
+    thumbnail?: string
 }
