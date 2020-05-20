@@ -14,6 +14,7 @@ import { UsersSharedModule } from './users/users-shared.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     PlacesSharedModule,

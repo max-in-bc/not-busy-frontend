@@ -1,0 +1,11 @@
+:host{
+    mat-toolbar{
+        flex-direction: column-reverse !important;
+    }
+
+    button.action-button {
+        mat-icon{
+            color: white;
+        }
+    }
+}

@@ -14,6 +14,7 @@ import { MatCardModule } from '@angular/material/card';
 
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 export const routes = [
   {
@@ -31,6 +32,7 @@ export const routes = [
     RouterModule.forChild(routes),
     CommonModule,
     FormsModule,
+    SharedModule,
     PlacesSharedModule,
     MatToolbarModule,
     MatFormFieldModule,

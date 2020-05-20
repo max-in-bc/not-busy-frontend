@@ -1,0 +1,46 @@
+:host{
+    mat-form-field{
+        width: 100%;
+    }
+
+    button.login-button{
+
+        display: flex;
+        margin: 16px auto auto auto;
+    }
+
+    .social-login-container{
+        display: flex;
+        flex-direction: row; 
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 20px 7vw;
+
+        ::ng-deep .mat-button-wrapper{
+            padding: 5px !important;
+        }
+        .button-container{
+            button{
+                
+                &.google-button{
+                    background: #ED3833
+                }
+                &.facebook-button{
+                    background: #4267b2
+                }
+                &.twitter-button{
+                    background: #38A1F3
+                }
+            }
+            img{
+                height: -webkit-fill-available;
+                width: auto;
+                filter: invert(100%);
+            }
+        }
+    }
+    .lower-message{
+        font-style: italic;
+        text-align: center;
+    }
+}

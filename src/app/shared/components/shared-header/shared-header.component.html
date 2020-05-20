@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+   
+    <mat-toolbar-row>
+        <span >{{header_title}}</span>
+
+        <!-- This fills the remaining space of the current row -->
+        <span style="flex: 1 1 auto;"></span>
+
+        <button mat-button class="action-button">
+            <mat-icon  *ngIf="router.url.indexOf('/home') != 0" routerLink=".." style="align-self: flex-end;" matSuffix>home</mat-icon>
+            <mat-icon  *ngIf="router.url.indexOf('/home') == 0" routerLink="/login" style="align-self: flex-end;" matSuffix>face</mat-icon>
+
+        </button>
+    </mat-toolbar-row>
+    
+        <ng-content select="[subheader-section]"></ng-content>
+
+</mat-toolbar>

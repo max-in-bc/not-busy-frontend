@@ -1,1 +1,56 @@
-<p>signup-page works!</p>
+<app-shared-header [header_title]="'Sign Up'"></app-shared-header>
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-error *ngIf="signup_failed">
+        The username and password were not recognised
+      </mat-error>
+      <mat-form-field >
+        <input matInput placeholder="Email" formControlName="email" required>
+        <mat-error>
+          Please provide a valid email address
+        </mat-error>
+      </mat-form-field>
+      <form [formGroup]="p_form">
+        <mat-form-field >
+            <input matInput type="password" placeholder="Password" formControlName="password" required>
+            <mat-error>
+              Please provide a valid password
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field >
+            <input matInput type="password" placeholder="Password (Confirm)" formControlName="password_confirm" required>
+            <mat-error>
+              Passwords do not match
+            </mat-error>
+          </mat-form-field>
+      </form>
+      
+      <button  mat-raised-button color="primary" class="login-button" >Sign Up</button>
+
+      <div class="social-login-container">
+        <div class="button-container">
+          <button mat-fab class="facebook-button" aria-label="Facebook social login">
+            <img src="https://img.icons8.com/material/48/000000/facebook-new.png"/>
+          </button>
+        </div>
+        <div class="button-container">
+          <button mat-fab  class="twitter-button"  aria-label="Twitter social login">
+            <img src="https://img.icons8.com/material/48/000000/twitter-squared.png"/>          
+          </button>
+        </div>
+        <div class="button-container">
+          <button mat-fab  class="google-button"  aria-label="Google social login">
+            <img src="https://img.icons8.com/ios/48/000000/google-plus.png"/>
+          </button>
+        </div>
+        
+      </div>
+
+      <div class="lower-message">
+        or <a routerLink="/signin">Sign in</a> to the app here!
+      </div>
+
+    </form>
+  </mat-card-content>
+</mat-card>
