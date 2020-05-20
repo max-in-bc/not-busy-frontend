@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/users/services/auth.service';
 
 @Component({
   selector: 'app-shared-header',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class SharedHeaderComponent implements OnInit {
 
   @Input() header_title: string = 'Not Busy App';
-  constructor(public router: Router) { }
+  constructor(public router: Router, public authServ: AuthService) { }
 
   ngOnInit(): void {
   }

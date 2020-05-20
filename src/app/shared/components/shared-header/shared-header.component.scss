@@ -6,6 +6,10 @@
     button.action-button {
         mat-icon{
             color: white;
+
+            &.is-authenticated{
+                color: rgb(0, 175, 0);
+            }
         }
     }
 }

@@ -17,7 +17,7 @@
           Please provide a valid password
         </mat-error>
       </mat-form-field>
-      <button  mat-raised-button color="primary" class="login-button" >Login</button>
+      <button  mat-raised-button color="primary" class="login-button" [disabled]="!form.valid">Login</button>
 
       <div class="social-login-container">
         <div class="button-container">

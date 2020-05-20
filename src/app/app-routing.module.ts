@@ -19,6 +19,11 @@ const routes: Routes = [
     loadChildren: () => import('./places/place-listings/place-listings.module').then(m => m.PlaceListingsModule)
   },
   {
+    path: 'user/:userId',
+    pathMatch: 'full',
+    loadChildren: () => import('./places/place-listings/place-listings.module').then(m => m.PlaceListingsModule)
+  },
+  {
     path: 'login',
     pathMatch: 'full',
     loadChildren: () => import('./users/login-page/login-page.module').then(m => m.LoginPageModule)

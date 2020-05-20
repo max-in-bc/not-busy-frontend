@@ -5,13 +5,15 @@ import { RouterModule } from '@angular/router';
 import { UsersSharedModule } from '../users-shared.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthorizationResolver } from '../resolvers/authorization.resolver';
 
 
 
 export const routes = [
   {
     path: '',
-    component: SignupPageComponent
+    component: SignupPageComponent,
+    canActivate: [AuthorizationResolver]
     
   }
 ];
@@ -24,6 +26,9 @@ export const routes = [
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+  ],
+  providers: [
+    AuthorizationResolver
   ]
 })
 export class SignupPageModule { }

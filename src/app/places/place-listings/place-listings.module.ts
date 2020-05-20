@@ -23,6 +23,13 @@ export const routes = [
     resolve: {
       data: PlaceListingsResolver
     }
+  },
+  {
+    path: 'user/:userId',
+    component: PlaceListingsComponent,
+    resolve: {
+      data: PlaceListingsResolver
+    }
   }
 ];
 

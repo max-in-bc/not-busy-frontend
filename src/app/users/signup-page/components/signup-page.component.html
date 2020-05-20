@@ -26,7 +26,7 @@
           </mat-form-field>
       </form>
       
-      <button  mat-raised-button color="primary" class="login-button" >Sign Up</button>
+      <button  mat-raised-button color="primary" class="login-button" [disabled]="!form.valid">Sign Up</button>
 
       <div class="social-login-container">
         <div class="button-container">

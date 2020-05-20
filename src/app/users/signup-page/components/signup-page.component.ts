@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SignupPageService } from '../services/signup-page.service';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup-page',
@@ -18,7 +20,7 @@ export class SignupPageComponent implements OnInit {
 
   });
   signup_failed: boolean = false;
-  constructor(private signupServ: SignupPageService) { }
+  constructor(private signupServ: SignupPageService, private authServ: AuthService, private router: Router) { }
   
   confirmPassword(control: any, group: FormGroup, matchPassword: string) {
       if (control.value &&  group.controls[matchPassword].value !== null && group.controls[matchPassword].value === control.value) {
@@ -30,8 +32,10 @@ export class SignupPageComponent implements OnInit {
   }
 
   onSubmit(){
-    this.signupServ.signUpWithEmailAndPassword(this.form.controls['email'].value, this.p_form.controls['password'].value).then(user => {
-      console.log(user);
+    this.signupServ.signUpWithEmailAndPassword(this.form.controls['email'].value, this.p_form.controls['password'].value).then(async (user_data: {userId: string, accessToken: string, refreshToken: string}) => {
+      console.log(user_data);
+      let user = await this.authServ.setUser(user_data);
+      this.router.navigate(['/user/' +  user._id]);
     });
   }
 
