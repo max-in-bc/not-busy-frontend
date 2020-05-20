@@ -15,10 +15,20 @@ import { MatCardModule } from '@angular/material/card';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 
+export const routes = [
+  {
+    path: '',
+    component: PlaceListingsComponent,
+    resolve: {
+      data: PlaceListingsResolver
+    }
+  }
+];
 
 @NgModule({
   declarations: [PlaceListingsComponent],
   imports: [
+    RouterModule.forChild(routes),
     CommonModule,
     FormsModule,
     PlacesSharedModule,

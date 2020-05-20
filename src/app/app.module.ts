@@ -7,6 +7,7 @@ import { PlacesSharedModule } from './places/places-shared.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UsersSharedModule } from './users/users-shared.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -16,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     AppRoutingModule,
     PlacesSharedModule,
+    UsersSharedModule,
     BrowserAnimationsModule
   ],
   providers: [],

@@ -21,8 +21,23 @@ const routes: Routes = [
   {
     path: 'login',
     pathMatch: 'full',
-    loadChildren: () => import('./users/login-page/login-page.module').then(m => m.PlaceListingsModule)
-  }
+    loadChildren: () => import('./users/login-page/login-page.module').then(m => m.LoginPageModule)
+  },
+  {
+    path: 'signin',
+    pathMatch: 'full',
+    loadChildren: () => import('./users/login-page/login-page.module').then(m => m.LoginPageModule)
+  },
+  {
+    path: 'signup',
+    pathMatch: 'full',
+    loadChildren: () => import('./users/signup-page/signup-page.module').then(m => m.SignupPageModule)
+  },
+  {
+    path: '**',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
