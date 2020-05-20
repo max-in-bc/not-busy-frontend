@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SignupPageComponent } from './components/signup-page/signup-page.component';
+import { SignupPageComponent } from './components/signup-page.component';
 import { RouterModule } from '@angular/router';
 import { UsersSharedModule } from '../users-shared.module';
 import { SharedModule } from 'src/app/shared/shared.module';

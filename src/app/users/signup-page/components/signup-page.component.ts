@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { SignupPageService } from '../services/signup-page.service';
 
 @Component({
   selector: 'app-signup-page',
@@ -17,7 +18,7 @@ export class SignupPageComponent implements OnInit {
 
   });
   signup_failed: boolean = false;
-  constructor() { }
+  constructor(private signupServ: SignupPageService) { }
   
   confirmPassword(control: any, group: FormGroup, matchPassword: string) {
       if (control.value &&  group.controls[matchPassword].value !== null && group.controls[matchPassword].value === control.value) {
@@ -29,7 +30,9 @@ export class SignupPageComponent implements OnInit {
   }
 
   onSubmit(){
-
+    this.signupServ.signUpWithEmailAndPassword(this.form.controls['email'].value, this.p_form.controls['password'].value).then(user => {
+      console.log(user);
+    });
   }
 
 }
