@@ -1,10 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PlaceListingsComponent } from './components/place-listings.component';
-import { PlacesSharedModule } from '../places-shared.module';
-import { PlaceListingsResolver } from './resolvers/place-listings.resolver';
-import { PlaceListingsService } from './services/place-listings.service';
-import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,11 +12,10 @@ import { LoadingBarModule } from '@ngx-loading-bar/core';
 
 
 @NgModule({
-  declarations: [PlaceListingsComponent],
+  declarations: [LoginPageComponent],
   imports: [
     CommonModule,
     FormsModule,
-    PlacesSharedModule,
     MatToolbarModule,
     MatFormFieldModule,
     MatIconModule,
@@ -31,8 +25,8 @@ import { LoadingBarModule } from '@ngx-loading-bar/core';
     LoadingBarModule
   ], 
   providers: [
-    PlaceListingsResolver,
-    PlaceListingsService
+    LoginPageResolve,
+    LoginPageService
   ]
 })
-export class PlaceListingsModule { }
+export class LoginPageModule { }

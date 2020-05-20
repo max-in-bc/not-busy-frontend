@@ -13,6 +13,8 @@ export class AppComponent {
 
   is_initialized$: Observable<LatLng>;
   constructor(public locationServ: LocationService){
-    this.is_initialized$ = from(this.locationServ.waitForLocation());
+    //angular boot screen mechanism hides the boot screen once the app has bootloaded
+    //so I have chosen to render the boot loader at app launch so we can wait for the user location to return before hiding
+    this.is_initialized$ = from(this.locationServ.waitForLocation()); 
   }
 }
