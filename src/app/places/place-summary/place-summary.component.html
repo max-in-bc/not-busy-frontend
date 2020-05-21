@@ -1,14 +1,23 @@
 
 <mat-card>
-    <mat-card-header>
+    
+    <div class="summary-section">
+        <mat-card-header>
 
             <mat-card-title>{{place.name}}</mat-card-title>
             <mat-card-subtitle>{{place.address}}</mat-card-subtitle>
             <img mat-card-avatar [src]="place.thumbnail">
            
-    </mat-card-header>
-    <button mat-button  right-header-section (click)="!is_favourite ? favouritePlace() : unfavouritePlace()" >
-        <mat-icon  routerLink="/login" style="align-self: flex-end;" matSuffix>{{is_favourite ? 'favorite' : 'favorite_border'}}</mat-icon>
+        </mat-card-header>
+        <button mat-button  right-header-section (click)="!is_favourite ? favouritePlace() : unfavouritePlace()" >
+            <mat-icon  routerLink="/login" style="align-self: flex-end;" matSuffix>{{is_favourite ? 'favorite' : 'favorite_border'}}</mat-icon>
 
-    </button>
+        </button>
+    </div>
+    
+    <div class="summary-section" *ngIf="popularity_level">
+        <mat-card-content>
+            
+        </mat-card-content>
+    </div>
 </mat-card>

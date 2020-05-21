@@ -2,5 +2,15 @@
    mat-card{
     justify-content: space-between;
     display: flex;
+    flex-wrap: wrap;
+
+    .summary-section{
+        justify-content: space-between;
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
+        align-items: flex-start;
+
+    }
    }
 }

@@ -5,5 +5,12 @@ export interface Place {
     address: string,
     location: LatLng,
     place_id: string,
-    thumbnail?: string
+    thumbnail?: string,
+
+    popularity_data?: {
+        popular_times?: Array<{name: string, data: Array<number>}>,
+        time_wait?: Array<number>,
+        time_spent?: Array<number>,
+        current_popularity?: number
+    }
 }

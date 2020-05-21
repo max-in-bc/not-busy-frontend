@@ -8,12 +8,14 @@ import { HomeListingsPageComponent } from './home-listings-page/components/home-
 import { PlaceListingsComponent } from './place-listings/place-listings.component';
 import { MatIconModule } from '@angular/material/icon';
 import { FavouritePlacesService } from '../users/services/favourite-places.service';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
 @NgModule({
   declarations: [PlaceSummaryComponent,PlaceDetailComponent, PlaceListingsComponent],
   imports: [
     CommonModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    LoadingBarModule
   ], 
   providers: [FavouritePlacesService],
   exports: [

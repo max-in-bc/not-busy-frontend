@@ -13,11 +13,22 @@ export class PlaceSummaryComponent implements OnInit {
 
   @Input() place: Place;
   is_favourite: boolean = false;
+  popularity_level: number|null = null;
   constructor(private router: Router, private favouritePlacesServ: FavouritePlacesService, private authServ: AuthService) { }
 
   ngOnInit(): void {
     let user =  this.authServ.getCurrentUser();
-    this.is_favourite = user && user.favourite_places.indexOf(this.place.place_id) != -1
+    this.is_favourite = user != null && user.favourite_places.indexOf(this.place.place_id) != -1;
+
+    if(this.place?.popularity_data?.popular_times){
+      let d = new Date();
+      let current_day = d.toLocaleString('en-us', {  weekday: 'long' });
+      let current_hour = d.getHours();
+        let day_info = this.place.popularity_data.popular_times.filter(d => d.name == current_day);
+        this.popularity_level = +day_info[0].data[current_hour];
+    }
+     
+    
   }
 
   favouritePlace(){
