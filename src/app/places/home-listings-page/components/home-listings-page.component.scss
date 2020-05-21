@@ -1,25 +1,28 @@
-::ng-deep .mat-form-field-suffix{
-        align-self: flex-end !important;
-    }
+button.header-action-button  {
+    color: white;
+}
 
-    mat-form-field{
-        width: 100%;
-    }
+.mat-form-field-suffix {
+    align-self: flex-end !important;
+}
 
-    .place-listing-spinner{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-top: 20px;
-    }
+mat-form-field {
+    width: 100%;
+}
 
-    ::ng-deep #loading-bar-spinner{
-        display: flex !important;
-        align-self: center;
-        align-items: center;
-        justify-content: center;
-        position: relative !important;
-        padding-top: 8px;
-    }
+.place-listing-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
 
-    
+::ng-deep #loading-bar-spinner {
+    display: flex !important;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    position: relative !important;
+    padding-top: 8px;
+}
+

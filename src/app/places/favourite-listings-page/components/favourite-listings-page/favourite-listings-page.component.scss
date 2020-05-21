@@ -1,4 +1,16 @@
-::ng-deep .mat-form-field-suffix{
+button.header-action-button  {
+    &.logout{
+
+        color: white;
+    }
+
+    &.favourite{
+        color: rgb(242, 7, 128);
+
+    }
+}
+
+.mat-form-field-suffix{
     align-self: flex-end !important;
 }
 
