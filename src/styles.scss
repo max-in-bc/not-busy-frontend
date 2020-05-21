@@ -46,7 +46,7 @@ mwl-gauge {
     }
   }
 
-  $medium_pop_color : rgb(34, 187, 34);
+  $medium_pop_color : rgb(47, 227, 255);
   .medium-pop{ color: $medium_pop_color}
   mwl-gauge.medium-pop > .gauge {
     > .value-text {
