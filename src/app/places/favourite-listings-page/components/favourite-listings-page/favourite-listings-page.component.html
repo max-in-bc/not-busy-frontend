@@ -1,6 +1,10 @@
 
 
 <app-shared-header [header_title]="user?.email">
+    <button mat-button left-header-section class="header-action-button">
+        <mat-icon   routerLink="home/" (click)="logoutUser()" style="align-self: flex-end;" matSuffix>exit_to_app</mat-icon>
+       
+    </button>
     <button mat-button right-header-section class="header-action-button">
         <mat-icon   routerLink="home/" style="align-self: flex-end;" matSuffix>favorite</mat-icon>
        

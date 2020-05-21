@@ -1,8 +1,10 @@
 <mat-toolbar color="primary">
    
     <mat-toolbar-row>
-        <span >{{header_title}}</span>
+        <ng-content select="[left-header-section]">
 
+        </ng-content>
+        <span >{{header_title}}</span>
         <!-- This fills the remaining space of the current row -->
         <span style="flex: 1 1 auto;"></span>
 

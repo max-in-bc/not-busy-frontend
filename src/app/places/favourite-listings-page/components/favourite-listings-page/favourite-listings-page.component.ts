@@ -28,5 +28,9 @@ export class FavouriteListingsPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  logoutUser(){
+    this.authServ.unauthorizeUser();
+  }
+
 
 }
