@@ -8,18 +8,16 @@ import { AuthService } from 'src/app/users/services/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class PlaceListingsService {
+export class FavouriteListingsPageService {
 
   constructor(private http: HttpClient, private api: BaseAPIService, private authServ: AuthService) { }
 
-  searchPlacesByLocation(location: LatLng, keywords?: string):Promise<Array<Place>>{
+  searchPlacesByLocationWithAuth(auth_token: string, location: LatLng, keywords?: string):Promise<Array<Place>>{
 
     return new Promise<Array<Place>>((resolve,reject) => {
-        let user = this.authServ.getCurrentUser();
-        let auth_token = user && user.auth_token ? user.auth_token : '';
         let params = { params: {lat: location.lat.toString(), lng: location.lng.toString(), searchTerm: keywords ? keywords : ''}};
+        params['headers'] = { Authorization: 'Bearer ' + auth_token };
         
-        if (auth_token) params['headers'] = { Authorization: 'Bearer ' + auth_token };
         this.http.get(this.api.getBaseHref() + '/places', params)
         .subscribe(
           data => {
@@ -33,3 +31,4 @@ export class PlaceListingsService {
     })
   }
 }
+

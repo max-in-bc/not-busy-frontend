@@ -3,16 +3,14 @@
 <app-shared-header>
     <mat-toolbar-row subheader-section>
         <mat-form-field >
-            <input (keyup.enter)="searchPlaces()" matInput placeholder="Search place types..."  [(ngModel)]="keywords">
-            <mat-icon [routerLink]="['/home/' + keywords]" style="align-self: flex-end;" matSuffix>search</mat-icon>
+            <input (keyup.enter)="router.navigate(['home/' + keywords])" matInput placeholder="Search place types..."  [(ngModel)]="keywords">
+            <mat-icon [routerLink]="['home/' + keywords]" style="align-self: flex-end;" matSuffix>search</mat-icon>
         </mat-form-field>
     </mat-toolbar-row>
 </app-shared-header>
 <ngx-loading-bar  [fixed]="false" diameter="28px" color="#525252"></ngx-loading-bar>
-<div *ngFor="let place of places">
-    <!-- <app-place-detail [place_id]="place.place_id"></app-place-detail> -->
-    <app-place-summary [place]="place"></app-place-summary>
-</div>
+<app-place-listings [keywords]="keywords" [places]="places"></app-place-listings>
+
 
 <mat-card *ngIf="!is_loading && places && places.length == 0">
     <mat-card-header>

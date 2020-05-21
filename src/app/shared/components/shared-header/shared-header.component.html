@@ -7,8 +7,8 @@
         <span style="flex: 1 1 auto;"></span>
 
         <button mat-button class="action-button">
-            <mat-icon   *ngIf="router.url.indexOf('/home') != 0" routerLink=".." style="align-self: flex-end;" matSuffix>home</mat-icon>
-            <mat-icon [ngClass]="{'is-authenticated' : authServ.getCurrentUser() != null}" *ngIf="router.url.indexOf('/home') == 0" routerLink="/login" style="align-self: flex-end;" matSuffix>face</mat-icon>
+            <mat-icon   *ngIf="router.url.indexOf('/home') != 0" routerLink=".." style="align-self: flex-end;" matSuffix>favorite</mat-icon>
+            <mat-icon   *ngIf="router.url.indexOf('/home') == 0" routerLink="/login" style="align-self: flex-end;" [ngClass]="{'is-authenticated' : authServ.getCurrentUser() != null}" matSuffix>favorite_border</mat-icon>
 
         </button>
     </mat-toolbar-row>

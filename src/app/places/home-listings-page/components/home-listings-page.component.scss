@@ -1,0 +1,25 @@
+::ng-deep .mat-form-field-suffix{
+        align-self: flex-end !important;
+    }
+
+    mat-form-field{
+        width: 100%;
+    }
+
+    .place-listing-spinner{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 20px;
+    }
+
+    ::ng-deep #loading-bar-spinner{
+        display: flex !important;
+        align-self: center;
+        align-items: center;
+        justify-content: center;
+        position: relative !important;
+        padding-top: 8px;
+    }
+
+    

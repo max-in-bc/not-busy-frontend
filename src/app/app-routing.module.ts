@@ -11,17 +11,17 @@ const routes: Routes = [
   {
     path: 'home',
     pathMatch: 'full',
-    loadChildren: () => import('./places/place-listings/place-listings.module').then(m => m.PlaceListingsModule)
+    loadChildren: () => import('./places/home-listings-page/home-listings-page.module').then(m => m.HomeListingsPageModule)
   },
   {
     path: 'home/:keywords',
     pathMatch: 'full',
-    loadChildren: () => import('./places/place-listings/place-listings.module').then(m => m.PlaceListingsModule)
+    loadChildren: () => import('./places/home-listings-page/home-listings-page.module').then(m => m.HomeListingsPageModule)
   },
   {
     path: 'user/:userId',
     pathMatch: 'full',
-    loadChildren: () => import('./places/place-listings/place-listings.module').then(m => m.PlaceListingsModule)
+    loadChildren: () => import('./places/favourite-listings-page/favourite-listings-page.module').then(m => m.FavouriteListingsPageModule)
   },
   {
     path: 'login',

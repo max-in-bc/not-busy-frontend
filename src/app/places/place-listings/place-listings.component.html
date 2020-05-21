@@ -1,0 +1,13 @@
+
+<div *ngFor="let place of places">
+    <!-- <app-place-detail [place_id]="place.place_id"></app-place-detail> -->
+    <app-place-summary [place]="place"></app-place-summary>
+</div>
+
+<mat-card *ngIf="places && places.length == 0">
+    <mat-card-header>
+        <mat-card-subtitle>
+            no places found in your area {{this.route.snapshot.data['data'].keywords ? ' using the keywords: ' + this.route.snapshot.data['data'].keywords  : ''}}
+        </mat-card-subtitle>
+    </mat-card-header>
+</mat-card >

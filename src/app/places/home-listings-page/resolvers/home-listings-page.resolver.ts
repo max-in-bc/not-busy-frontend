@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 
 import { forkJoin } from 'rxjs';
-import { PlaceListingsService } from '../services/place-listings.service';
+import { HomeListingsPageService } from '../services/home-listings-page.service';
 import { LocationService } from 'src/app/shared/services/location.service';
 
 import { last, pluck} from 'rxjs/operators';
 import { AuthService } from 'src/app/users/services/auth.service';
 
 @Injectable()
-export class PlaceListingsResolver implements Resolve<any> {
+export class HomeListingsPageResolver implements Resolve<any> {
 
   constructor(
-    private placeListingsServ: PlaceListingsService,
+    private placeListingsServ: HomeListingsPageService,
     private locationServ: LocationService,
     private authServ: AuthService
   ) {}

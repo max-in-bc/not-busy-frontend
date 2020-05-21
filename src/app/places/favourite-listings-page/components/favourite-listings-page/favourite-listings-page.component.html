@@ -1,0 +1,21 @@
+
+
+<app-shared-header [header_title]="user?.email">
+    <mat-toolbar-row subheader-section>
+        <mat-form-field >
+            <input (keyup.enter)="router.navigate(['home/' + keywords])" matInput placeholder="Search place types..."  [(ngModel)]="keywords">
+            <mat-icon [routerLink]="['home/' + keywords]" style="align-self: flex-end;" matSuffix>search</mat-icon>
+        </mat-form-field>
+    </mat-toolbar-row>
+</app-shared-header>
+<ngx-loading-bar  [fixed]="false" diameter="28px" color="#525252"></ngx-loading-bar>
+<app-place-listings [keywords]="keywords" [places]="places"></app-place-listings>
+
+
+<mat-card *ngIf="!is_loading && places && places.length == 0">
+    <mat-card-header>
+        <mat-card-subtitle>
+            no places found in your area {{this.route.snapshot.data['data'].keywords ? ' using the keywords: ' + this.route.snapshot.data['data'].keywords  : ''}}
+        </mat-card-subtitle>
+    </mat-card-header>
+</mat-card >
