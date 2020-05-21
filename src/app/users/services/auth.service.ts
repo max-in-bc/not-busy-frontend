@@ -42,8 +42,24 @@ export class AuthService {
   }
 
   async updateUser(user: User): Promise<any>{
-    this._current_user = user;
-    return Promise.resolve();
+    return new Promise<User>((resolve, reject) => {
+      this.http.put(this.api.getBaseHref() + '/users/' + user._id, {
+        email: user.email,
+        favourite_places: user.favourite_places,
+    
+      }, { headers: { Authorization: 'Bearer ' + user.auth_token } }, 
+      )
+        .subscribe(
+          (u: User) => {
+            this._current_user = user;
+            resolve(user);
+          },
+          err => {
+            reject();
+          }
+        );
+
+    })
   }
 
   getCurrentUser(): User|null{
