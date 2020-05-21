@@ -1,6 +1,10 @@
 
 
 <app-shared-header>
+    <button mat-button  right-header-section class="header-action-button">
+        <mat-icon  routerLink="/login" style="align-self: flex-end;" matSuffix>favorite_border</mat-icon>
+
+    </button>
     <mat-toolbar-row subheader-section>
         <mat-form-field >
             <input (keyup.enter)="router.navigate(['home/' + keywords])" matInput placeholder="Search place types..."  [(ngModel)]="keywords">
@@ -9,7 +13,7 @@
     </mat-toolbar-row>
 </app-shared-header>
 <ngx-loading-bar  [fixed]="false" diameter="28px" color="#525252"></ngx-loading-bar>
-<app-place-listings [keywords]="keywords" [places]="places"></app-place-listings>
+<app-place-listings *ngIf="places && places.length > 0" [keywords]="keywords" [places]="places"></app-place-listings>
 
 
 <mat-card *ngIf="!is_loading && places && places.length == 0">

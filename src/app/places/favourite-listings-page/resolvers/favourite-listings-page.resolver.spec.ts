@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FavouriteListingsPageResolver } from './favourite-listings-page-resolver.service';
+import { FavouriteListingsPageResolver } from './favourite-listings-page.resolver';
 
 describe('FavouriteListingsPageResolverService', () => {
   let service: FavouriteListingsPageResolver;

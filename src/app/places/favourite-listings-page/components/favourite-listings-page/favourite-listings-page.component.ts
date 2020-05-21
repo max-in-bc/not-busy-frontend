@@ -19,7 +19,8 @@ export class FavouriteListingsPageComponent implements OnInit {
   constructor(public route : ActivatedRoute, public router: Router, private authServ: AuthService) { 
     this.places = this.route.snapshot.data['data'].places;
     this.keywords = this.route.snapshot.data['data'].keywords;
-    this.user = this.authServ.getCurrentUser();
+    this.user = this.route.snapshot.data['data'].user;
+    
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
     };

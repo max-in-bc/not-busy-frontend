@@ -18,6 +18,7 @@ export class PlaceListingsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.places);
   }
 
 

@@ -3,7 +3,7 @@
         flex-direction: column-reverse !important;
     }
 
-    button.action-button {
+    ::slotted *  {
         mat-icon{
             color: white;
 
@@ -12,4 +12,5 @@
             }
         }
     }
+    
 }

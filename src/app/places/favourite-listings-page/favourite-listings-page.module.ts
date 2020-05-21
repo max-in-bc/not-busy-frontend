@@ -15,7 +15,7 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FavouriteListingsPageComponent } from './components/favourite-listings-page/favourite-listings-page.component';
-import { FavouriteListingsPageResolver } from './resolvers/favourite-listings-page-resolver.service';
+import { FavouriteListingsPageResolver } from './resolvers/favourite-listings-page.resolver';
 import { FavouriteListingsPageService } from './services/favourite-listings-page.service';
 
 export const routes = [
