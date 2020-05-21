@@ -15,9 +15,20 @@
         </button>
     </div>
     
-    <div class="summary-section" *ngIf="popularity_level">
-        <mat-card-content>
-            
-        </mat-card-content>
+   
+    <div class="popular-times-section {{popularity.level < 40 ? 'low-pop' : popularity.level > 60 ? 'high-pop' : 'medium-pop'}}"  *ngIf="popularity">
+        
+        <mwl-gauge 
+        class="{{popularity.level < 40 ? 'low-pop' : popularity.level > 60 ? 'high-pop' : 'medium-pop'}}"
+        [max]="100"
+        [dialStartAngle]="180"
+        [dialEndAngle]="0"
+        [value]="popularity.level != null ? popularity.level : 0"
+        [animated]="false">
+      </mwl-gauge>
+      <div class="popularity-details">{{popularity?.text}}</div> 
     </div>
+    
 </mat-card>
+
+   

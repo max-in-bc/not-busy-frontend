@@ -9,13 +9,14 @@ import { PlaceListingsComponent } from './place-listings/place-listings.componen
 import { MatIconModule } from '@angular/material/icon';
 import { FavouritePlacesService } from '../users/services/favourite-places.service';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { GaugeModule } from 'angular-gauge';
 @NgModule({
   declarations: [PlaceSummaryComponent,PlaceDetailComponent, PlaceListingsComponent],
   imports: [
     CommonModule,
     MatCardModule,
     MatIconModule,
-    LoadingBarModule
+    GaugeModule.forRoot(),
   ], 
   providers: [FavouritePlacesService],
   exports: [

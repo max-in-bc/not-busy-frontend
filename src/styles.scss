@@ -10,3 +10,59 @@ div#applaunch{
 button.header-action-button  {
     color: white;
 }
+
+mwl-gauge {
+    width: 150px;
+    height: 75px;
+    display: block;
+    margin: auto;
+    padding-bottom: 10px;
+  }
+  mwl-gauge > .gauge > .dial {
+    stroke: #eee;
+    stroke-width: 2;
+    fill: rgba(0,0,0,0);
+  }
+  mwl-gauge > .gauge > .value {
+    stroke: rgb(47, 227, 255);
+    stroke-width: 2;
+    fill: rgba(0,0,0,0);
+  }
+  mwl-gauge > .gauge > .value-text {
+   
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+  }
+
+  $low_pop_color : rgb(34, 187, 34);
+  .low-pop{ color: $low_pop_color}
+  mwl-gauge.low-pop > .gauge {
+    > .value-text {
+        fill: $low_pop_color 
+    }
+    > .value {
+        stroke: $low_pop_color 
+    }
+  }
+
+  $medium_pop_color : rgb(34, 187, 34);
+  .medium-pop{ color: $medium_pop_color}
+  mwl-gauge.medium-pop > .gauge {
+    > .value-text {
+        fill: $medium_pop_color
+    }
+    > .value {
+        stroke: $medium_pop_color
+    }
+  }
+  $high_pop_color : rgb(255, 47, 47);
+  .high-pop{ color: $high_pop_color }
+  mwl-gauge.high-pop > .gauge {
+    > .value-text {
+        fill: $high_pop_color 
+    }
+    > .value {
+        stroke: $high_pop_color 
+    }
+  }

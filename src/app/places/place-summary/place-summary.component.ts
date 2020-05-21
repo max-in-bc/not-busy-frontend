@@ -13,7 +13,7 @@ export class PlaceSummaryComponent implements OnInit {
 
   @Input() place: Place;
   is_favourite: boolean = false;
-  popularity_level: number|null = null;
+  popularity: {level:number, text: string}|null = null;
   constructor(private router: Router, private favouritePlacesServ: FavouritePlacesService, private authServ: AuthService) { }
 
   ngOnInit(): void {
@@ -25,10 +25,30 @@ export class PlaceSummaryComponent implements OnInit {
       let current_day = d.toLocaleString('en-us', {  weekday: 'long' });
       let current_hour = d.getHours();
         let day_info = this.place.popularity_data.popular_times.filter(d => d.name == current_day);
-        this.popularity_level = +day_info[0].data[current_hour];
+        this.popularity = {level: +day_info[0].data[current_hour], text: this.generatePopularityText(this.place.name, +day_info[0].data[current_hour])};
     }
      
     
+  }
+
+  private generatePopularityText(place_name: string, popularity_level: number): string{
+
+    if (popularity_level == 0){
+      //closed
+      return 'closed.'
+    }
+    else if (popularity_level > 0 && popularity_level < 40){
+      return 'not busy right now.'
+    }
+    else if (popularity_level >= 40 && popularity_level <= 60){
+      return 'averagely busy right now.'
+    }
+    else if (popularity_level > 60 && popularity_level <= 75){
+      return 'fairly busy right now.'
+    }
+    else{
+      return 'very busy right now.'
+    }
   }
 
   favouritePlace(){
