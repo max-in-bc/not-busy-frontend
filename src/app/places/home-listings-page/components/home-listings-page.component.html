@@ -8,7 +8,7 @@
     <mat-toolbar-row subheader-section>
         <mat-form-field >
             <input (keyup.enter)="router.navigate(['home/' + keywords])" matInput placeholder="Search place types..."  [(ngModel)]="keywords">
-            <mat-icon [routerLink]="['home/' + keywords]" style="align-self: flex-end;" matSuffix>search</mat-icon>
+            <mat-icon [routerLink]="['/home/' + keywords]" style="align-self: flex-end;" matSuffix>search</mat-icon>
         </mat-form-field>
     </mat-toolbar-row>
 </app-shared-header>

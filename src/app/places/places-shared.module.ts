@@ -6,12 +6,16 @@ import { PlaceDetailComponent } from './place-detail/components/place-detail.com
 import {MatCardModule} from '@angular/material/card';
 import { HomeListingsPageComponent } from './home-listings-page/components/home-listings-page.component';
 import { PlaceListingsComponent } from './place-listings/place-listings.component';
+import { MatIconModule } from '@angular/material/icon';
+import { FavouritePlacesService } from '../users/services/favourite-places.service';
 @NgModule({
   declarations: [PlaceSummaryComponent,PlaceDetailComponent, PlaceListingsComponent],
   imports: [
     CommonModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ], 
+  providers: [FavouritePlacesService],
   exports: [
     PlaceSummaryComponent,
     PlaceDetailComponent,

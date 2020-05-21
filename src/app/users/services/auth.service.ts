@@ -41,6 +41,11 @@ export class AuthService {
     })
   }
 
+  async updateUser(user: User): Promise<any>{
+    this._current_user = user;
+    return Promise.resolve();
+  }
+
   getCurrentUser(): User|null{
     return this._current_user;
   }
