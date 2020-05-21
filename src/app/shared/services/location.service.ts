@@ -21,10 +21,10 @@ export class LocationService {
           lng:position.coords.longitude
         };
         this._initialized = true;
-      }, this.catchGeolocationApiError);
+      }, (err) => {this.catchGeolocationApiError(err)});
     } else {
       console.log('Geolocation not available');
-      this._initialized = true;
+      this._initialized = false;
     }
   }
 
@@ -43,7 +43,7 @@ export class LocationService {
         console.log( "An unknown error occurred.")
         break;
     }
-    this._initialized = true;
+    this._initialized = false;
   }
   
   public getClientLocation(): LatLng{
