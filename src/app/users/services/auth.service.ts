@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/shared/interfaces/user.interface';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { BaseAPIService } from 'src/app/shared/services/base-api.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -82,5 +83,12 @@ export class AuthService {
 
     return this.setUser({userId: <string>current_user_id, accessToken: <string>access_token, refreshToken: <string>refresh_token})
 
+  }
+
+  refreshAuth(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
+    
+
+
+    return next.handle(request);
   }
 }
