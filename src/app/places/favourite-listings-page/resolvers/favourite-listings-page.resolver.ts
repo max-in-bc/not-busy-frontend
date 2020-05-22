@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
+import { Resolve, ActivatedRouteSnapshot, Router } from '@angular/router';
 
 import { forkJoin, from } from 'rxjs';
 import { LocationService } from 'src/app/shared/services/location.service';
@@ -15,7 +15,8 @@ export class FavouriteListingsPageResolver implements Resolve<any> {
   constructor(
     private favouriteListingsServ: FavouriteListingsPageService,
     private locationServ: LocationService,
-    private authServ: AuthService
+    private authServ: AuthService,
+    private router: Router
   ) {}
 
   resolve(route: ActivatedRouteSnapshot) {
@@ -25,6 +26,7 @@ export class FavouriteListingsPageResolver implements Resolve<any> {
       let user: User|null = await this.authServ.checkForAuth();
     
       if (!user){
+        this.router.navigate(['/home'])
         rej('Needs authentication')
       }
       else{

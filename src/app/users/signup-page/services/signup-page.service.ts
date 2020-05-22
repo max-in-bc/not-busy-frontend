@@ -12,7 +12,7 @@ export class SignupPageService {
 
   signUpWithEmailAndPassword(email: string, password: string): Promise<{userId: string}> {
     return new Promise<{userId: string}>((resolve, reject) => {
-      this.http.post(this.api.getBaseHref() + '/users ', {  email,password } )
+      this.http.post(this.api.getBaseHref() + '/users ', { email,password } )
         .subscribe(
           (user: {id: string}) => {
             resolve({userId: user.id});

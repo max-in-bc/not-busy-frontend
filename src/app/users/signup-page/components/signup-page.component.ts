@@ -4,6 +4,7 @@ import { SignupPageService } from '../services/signup-page.service';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { LoginPageService } from '../../login-page/services/login-page.service';
+import { UserAuthData } from 'src/app/shared/interfaces/user.interface';
 
 @Component({
   selector: 'app-signup-page',
@@ -35,7 +36,7 @@ export class SignupPageComponent implements OnInit {
   onSubmit(){
     this.signupServ.signUpWithEmailAndPassword(this.form.controls['email'].value, this.p_form.controls['password'].value).then(async (user_data: {userId: string}) => {
         console.log(user_data);
-        this.loginServ.signInWithEmailAndPassword(this.form.controls['email'].value, this.p_form.controls['password'].value).then(async (user_data: {userId: string, accessToken: string, refreshToken: string}) => {
+        this.loginServ.signInWithEmailAndPassword(this.form.controls['email'].value, this.p_form.controls['password'].value).then(async (user_data: UserAuthData) => {
       
         let user = await this.authServ.setUser(user_data);
         this.router.navigate(['/user/' +  user._id]);

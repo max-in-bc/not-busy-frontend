@@ -8,6 +8,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthorizationResolver } from '../resolvers/authorization.resolver';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
 
 export const routes = [
@@ -28,6 +29,7 @@ export const routes = [
     FormsModule,
     ReactiveFormsModule,
     LoadingBarRouterModule,
+    LoadingBarHttpClientModule,
     LoadingBarModule
   ],
   providers: [

@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginPageService } from '../services/login-page.service';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { UserAuthData } from 'src/app/shared/interfaces/user.interface';
 
 @Component({
   selector: 'app-login-page',
@@ -22,7 +23,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   async onSubmit(){
-    this.loginServ.signInWithEmailAndPassword(this.form.controls['email'].value, this.form.controls['password'].value).then(async (user_data: {userId: string, accessToken: string, refreshToken: string}) => {
+    this.loginServ.signInWithEmailAndPassword(this.form.controls['email'].value, this.form.controls['password'].value).then(async (user_data: UserAuthData) => {
       console.log(user_data);
       let user = await this.authServ.setUser(user_data);
       this.router.navigate(['/user/' +  user._id]);

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from 'src/app/shared/interfaces/user.interface';
+import { User, UserAuthData } from 'src/app/shared/interfaces/user.interface';
 import { BaseAPIService } from 'src/app/shared/services/base-api.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -10,12 +10,17 @@ export class LoginPageService {
 
   constructor(private http: HttpClient, private api: BaseAPIService) { }
 
-  signInWithEmailAndPassword(email: string, password: string): Promise<{userId: string, accessToken: string, refreshToken: string}> {
-    return new Promise<{userId: string, accessToken: string, refreshToken: string}>((resolve, reject) => {
+  signInWithEmailAndPassword(email: string, password: string): Promise<UserAuthData> {
+    return new Promise<UserAuthData>((resolve, reject) => {
       this.http.post(this.api.getBaseHref() + '/auth ', { email, password })
         .subscribe(
-          (user: {userId: string, accessToken: string, refreshToken: string}) => {
-            resolve(user);
+          (user: any) => {
+            resolve({
+              
+              _id: user.userId,
+              auth_token: user.accessToken,
+              refresh_token: user.refreshToken
+            });
           },
           err => {
             reject();
