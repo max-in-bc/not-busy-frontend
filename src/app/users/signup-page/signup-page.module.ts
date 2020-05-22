@@ -6,6 +6,8 @@ import { UsersSharedModule } from '../users-shared.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthorizationResolver } from '../resolvers/authorization.resolver';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 
 
 
@@ -26,6 +28,9 @@ export const routes = [
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+
+    LoadingBarRouterModule,
+    LoadingBarModule
   ],
   providers: [
     AuthorizationResolver

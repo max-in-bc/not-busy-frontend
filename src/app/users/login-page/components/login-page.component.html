@@ -1,9 +1,10 @@
-<app-shared-header [header_title]="'Log In'">
+<app-shared-header noRequestsPage [header_title]="'Log In'">
   <button mat-button  right-header-section class="header-action-button">
     <mat-icon  routerLink="/home" style="align-self: flex-end;" matSuffix>home</mat-icon>
 
   </button>
 </app-shared-header>
+<ngx-loading-bar [includeSpinner]="false" [fixed]="false"   color="#525252"></ngx-loading-bar>
 <mat-card>
   <mat-card-content>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">

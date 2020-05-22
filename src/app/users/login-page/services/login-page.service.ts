@@ -12,7 +12,7 @@ export class LoginPageService {
 
   signInWithEmailAndPassword(email: string, password: string): Promise<{userId: string, accessToken: string, refreshToken: string}> {
     return new Promise<{userId: string, accessToken: string, refreshToken: string}>((resolve, reject) => {
-      this.http.post(this.api.getBaseHref() + '/auth ', { params: { header: btoa(email + '\_:_/'  + password) } })
+      this.http.post(this.api.getBaseHref() + '/auth ', { email, password })
         .subscribe(
           (user: {userId: string, accessToken: string, refreshToken: string}) => {
             resolve(user);
