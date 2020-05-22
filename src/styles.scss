@@ -2,7 +2,16 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;    background: #673ab7;}
+#loading-bar-spinner{
 
+  margin-bottom: 15px !important;
+  display: flex !important;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  position: relative !important;
+  padding-top: 8px;
+}
 
 mwl-gauge {
     width: 150px;
