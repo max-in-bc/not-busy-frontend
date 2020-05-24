@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, Router } from '@angular/router';
 
-import { forkJoin, from } from 'rxjs';
+import {  from } from 'rxjs';
 import { LocationService } from 'src/app/shared/services/location.service';
 
 import { AuthService } from 'src/app/users/services/auth.service';
