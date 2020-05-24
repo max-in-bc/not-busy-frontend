@@ -12,13 +12,13 @@ export class FavouriteListingsPageService {
 
   constructor(private http: HttpClient, private api: BaseAPIService, private authServ: AuthService) { }
 
-  searchPlacesByLocationWithAuth(auth_token: string, location: LatLng, keywords?: string):Promise<Array<Place>>{
+  searchPlacesByLocationWithAuth(user_id: string, auth_token: string, location: LatLng):Promise<Array<Place>>{
 
     return new Promise<Array<Place>>((resolve,reject) => {
-        let params = { params: {lat: location.lat.toString(), lng: location.lng.toString(), searchTerm: keywords ? keywords : ''}};
+        let params = { params: {lat: location.lat.toString(), lng: location.lng.toString()}};
         params['headers'] = { Authorization: 'Bearer ' + auth_token };
         
-        this.http.get(this.api.getBaseHref() + '/places', params)
+        this.http.get(this.api.getBaseHref() + '/places/favs/' + user_id, params)
         .subscribe(
           data => {
             resolve(<Array<Place>>data['places']);

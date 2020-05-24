@@ -31,7 +31,7 @@ export class FavouriteListingsPageResolver implements Resolve<any> {
       }
       else{
         
-        from(this.favouriteListingsServ.searchPlacesByLocationWithAuth(user.auth_token, this.locationServ.getClientLocation(), route.params.keywords))
+        from(this.favouriteListingsServ.searchPlacesByLocationWithAuth(user._id, user.auth_token, this.locationServ.getClientLocation()))
         .subscribe((data: Array<Place>) => {
           res({
             places: data,
