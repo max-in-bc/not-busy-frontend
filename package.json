@@ -1,6 +1,7 @@
 {
   "name": "not-busy-frontend",
   "version": "0.0.0",
+  "homepage": "https://not-busy-front.web.app/",
   "scripts": { 
     "start": "ng serve --liveReload=true",
     "serve-on-network": "ng serve --ssl true --source-map=true",
@@ -9,6 +10,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
+  },
+  "author": {
+    "name": "Max Gardiner",
+    "email": "contact@maxgardiner.ca",
   },
   "private": true,
   "dependencies": {
