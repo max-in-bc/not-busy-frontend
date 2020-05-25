@@ -7,7 +7,7 @@ export class BaseAPIService {
 
   constructor() { }
 
-  private base_href = 'https://ec2-54-201-199-86.us-west-2.compute.amazonaws.com:3000';
+  private base_href = 'https://maxgardiner.xyz';
   public first_request_returned: boolean = false;
 
   getBaseHref(): string{

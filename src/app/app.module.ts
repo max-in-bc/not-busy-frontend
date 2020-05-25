@@ -9,6 +9,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsersSharedModule } from './users/users-shared.module';
 import { HttpServiceInterceptor } from './shared/services/http-service.interceptor';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent
@@ -20,7 +21,8 @@ import { HttpServiceInterceptor } from './shared/services/http-service.intercept
     AppRoutingModule,
     PlacesSharedModule,
     UsersSharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSnackBarModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpServiceInterceptor, multi: true }],

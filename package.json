@@ -5,7 +5,7 @@
     "start": "ng serve --liveReload=true",
     "serve-on-network": "ng serve --ssl true --source-map=true",
     "build": "ng build --prod",
-    "build-and-deploy-to-firebase": "npm start build && firebase deploy",
+    "build-and-deploy-to-firebase": "npm run build && firebase deploy",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

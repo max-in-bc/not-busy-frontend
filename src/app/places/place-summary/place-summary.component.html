@@ -9,7 +9,7 @@
             <img mat-card-avatar [src]="place.thumbnail">
            
         </mat-card-header>
-        <button mat-button (click)="!is_favourite ? favouritePlace() : unfavouritePlace()" >
+        <button class="favourite-button" mat-button (click)="!is_favourite ? favouritePlace() : unfavouritePlace()" >
             <mat-icon  routerLink="/login" [ngStyle]="{'color' : is_favourite ? 'rgb(242, 7, 128)' : 'inherit'}" style="align-self: flex-end;" matSuffix>{{is_favourite ? 'favorite' : 'favorite_border'}}</mat-icon>
 
         </button>
