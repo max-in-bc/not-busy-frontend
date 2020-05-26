@@ -1,6 +1,6 @@
 {
   "name": "not-busy-frontend",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "homepage": "https://not-busy-front.web.app/",
   "scripts": { 
     "start": "ng serve --liveReload=true",
@@ -13,7 +13,7 @@
   },
   "author": {
     "name": "Max Gardiner",
-    "email": "contact@maxgardiner.ca",
+    "email": "contact@maxgardiner.ca"
   },
   "private": true,
   "dependencies": {
