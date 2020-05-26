@@ -10,6 +10,17 @@ Since COVID-19 we citizens have struggled with the balance of social distance an
 
 Not Busy App is an Angular 9 web app which requires the user’s location. Using the location we query some basic data using the “not-busy-backend” api (also public source). This API returns a list of places and their relevant “popularity” data. Subsequent searches of this api can also include a keyword to filter resulting places. Authenticated users can “heart” (favourite) and save a specific set of places, to be retrieved and popular-time data gathered in realtime.
 
+## Samples
+
+Here is an authenticated user searching for "Walmart" to find the least busy walmart in the area. 
+
+![Searching for 'Walmart' authenticated](/sample_images/3.png)
+
+Here is an authenticated user looking at their page of "hearted" places that they wanted saved. In future iterations each place will have at least an estimate of current popularity based on business type.
+
+
+![An authenticated user's favourites list](/sample_images/2.png)
+
 ## Other considerations
 
 - This app is just a proof-of-concept to be presented as an idea in the meantime. If I continue to create some more functionality and finish up the final basic components I will consider making this a real open source project.  I will gladly accept any ideas or issues in the issue tracker, or PRs if anyone is really interested.
@@ -19,7 +30,8 @@ Not Busy App is an Angular 9 web app which requires the user’s location. Using
 
 - A place “detail” page on long-press of a summary item which displays all relevant data available including opening hours and a map+link
 - Extending the front-end unit tests
-- Social OAuth (Twitter, FB, Google) setup 
+- Social OAuth (Twitter, FB, Google) setup
+- Estimate of current popularity (when not available) based on business type 
 
 ## Future Considerations
 - Package the entire app into a docker instance (or other container platform)
