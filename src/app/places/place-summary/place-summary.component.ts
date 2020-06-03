@@ -28,7 +28,7 @@ export class PlaceSummaryComponent implements OnInit {
         let day_info = this.place.popularity_data.popular_times.filter(d => d.name == current_day);
         this.popularity = { level: this.place.popularity_data.current_popularity ? this.place.popularity_data.current_popularity :  +day_info[0].data[current_hour], text: this.generatePopularityText(this.place.name, +day_info[0].data[current_hour]) };
       }
-      else if (this.place.popularity_data.current_popularity) {
+      else if (this.place.popularity_data.current_popularity != null ) {
         this.popularity = { level: this.place.popularity_data.current_popularity, text: this.generatePopularityText(this.place.name,  this.place.popularity_data.current_popularity) };
       
       } 
